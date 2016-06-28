@@ -1,0 +1,14 @@
+模板引擎,用正则替换实现
+
+测试:
+from template import Template
+text = open('templates/list.html').read()
+t=Template(text,template_dir='templates')
+
+text = open('templates/child1.html').read()
+t = Template(text,template_dir='templates')
+
+from template import Template
+text=open('templates/child2.html').read()
+t=Template(text,template_dir='templates')
+
