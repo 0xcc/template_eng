@@ -49,7 +49,6 @@ class Template(object):
 		#{{ block.super}}
 		self.re_block_super=re.compile(r'\{\{ block\.super \}\}')
 
-
 		#def __func_name():
 		code_builder.add_line('def {}():'.format(self.func_name))
 		code_builder.forward()
@@ -218,6 +217,7 @@ class Template(object):
 	def render(self,context=None):
 		namespace={}
 		namespace.update(self.default_context)
+		namespace.setdefault('__builtins__', {})
 		if context:
 			namespace.update(context)
 
