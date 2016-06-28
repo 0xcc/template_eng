@@ -141,7 +141,8 @@ class Template(object):
 
 		#获取child2.html中的block
 		child_blocks=self._get_all_blocks(self.raw_text)
-		#print child_blocks
+		#{block_name:block_code}
+		print "child_blocks: ",child_blocks
 		with open(parent_template_path) as fp:
 			parent_text = fp.read()
 
@@ -179,7 +180,7 @@ class Template(object):
 				 {% endblock header%}
 		'''
 		blocks=self.re_blocks.findall(text)
-		print "blocks: ",blocks
+		#print "blocks: ",blocks
 		return {name:code for name,code in blocks}
 
 
